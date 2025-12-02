@@ -101,7 +101,7 @@ Item {
                     anchors.bottom: parent.bottom
                     //height: slider.visualPosition * groove.height
                     radius: 4
-                    color: "#00B4FF"
+                    color: "Transparent"
 
                     Behavior on height {
                         NumberAnimation { duration: 120 }
@@ -124,10 +124,10 @@ Item {
 
         handle: Rectangle {
             width: 22
-            height: 22
+            height: 15
             radius: 11
-            color: "#ffffff"
-            border.color: "#00B4FF"
+            color: "transparent"
+            border.color: "#FFFFFF"
             border.width: 2
 
             x: (slider.width - width) / 2   // قرارگیری درست وسط
