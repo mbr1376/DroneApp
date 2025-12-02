@@ -19,6 +19,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
+        anchors.verticalCenterOffset: -50
     }
     Camera{
         anchors.left: parent.left
