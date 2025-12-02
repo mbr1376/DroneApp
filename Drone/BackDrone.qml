@@ -15,8 +15,15 @@ Rectangle{
 
     }
     Compass{
+        id:_compass
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
+    }
+    Camera{
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.top:_compass.bottom
+        anchors.topMargin:15
     }
 }
