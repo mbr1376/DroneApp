@@ -40,4 +40,10 @@ Rectangle{
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
     }
+    PanelInfo{
+        anchors.top: parent.top
+        anchors.topMargin: 10
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+    }
 }

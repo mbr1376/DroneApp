@@ -21,4 +21,6 @@ qt_add_qml_module(DronePlugin
     QML_FILES MoveItem.qml
     RESOURCES resource/rotate.png resource/heading.png
     QML_FILES InfoItem.qml
+    QML_FILES PanelInfo.qml
+    RESOURCES resource/battery.png
 )
