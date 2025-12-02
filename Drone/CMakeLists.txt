@@ -17,4 +17,8 @@ qt_add_qml_module(DronePlugin
     RESOURCES resource/font/Poppins-Regular.ttf
     QML_FILES CameraItem.qml
     RESOURCES resource/lucide_video.png resource/ph_camera.png
+    RESOURCES resource/move.png
+    QML_FILES MoveItem.qml
+    RESOURCES resource/rotate.png resource/heading.png
+    QML_FILES InfoItem.qml
 )

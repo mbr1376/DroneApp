@@ -23,6 +23,7 @@ Item {
                 font.family: _font.name
                 font.pixelSize: 12
                 checkable: true
+                checked: true
                 width: 90
                 height: 40
                 background: Rectangle{

@@ -16,15 +16,28 @@ Rectangle{
 
     Compass{
         id:_compass
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
-        anchors.verticalCenterOffset: -50
     }
     CameraItem{
+        id:_camera
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top:_compass.bottom
         anchors.topMargin:15
+    }
+    MoveItem{
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.top:_camera.bottom
+        anchors.topMargin:15
+    }
+    InfoItem{
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.rightMargin: 10
+        anchors.bottomMargin: 10
     }
 }

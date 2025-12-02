@@ -15,7 +15,7 @@ Item{
     Component.onCompleted: player.play()
     MediaPlayer {
             id: player
-            source: ":/resource/video.mp4"     // FULL PATH
+            source: "file:///Users/mbr/DroneApp/Drone/resource/video.mp4" //Qt.resolvedUrl("/Users/mbr/DroneApp/Drone/resource/video.mp4")      // FULL PATH
             videoOutput: video
             //autoPlay: true
             loops: MediaPlayer.Infinite
