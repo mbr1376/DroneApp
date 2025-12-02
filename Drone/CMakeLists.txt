@@ -15,6 +15,6 @@ qt_add_qml_module(DronePlugin
     QML_FILES Compass.qml
     RESOURCES resource/backcompass.png resource/compass.png
     RESOURCES resource/font/Poppins-Regular.ttf
-    QML_FILES Camera.qml
+    QML_FILES CameraItem.qml
     RESOURCES resource/lucide_video.png resource/ph_camera.png
 )

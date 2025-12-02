@@ -1,6 +1,5 @@
 import QtQuick
 
-
 Rectangle{
     id: rectangle
     width: 600
@@ -14,6 +13,7 @@ Rectangle{
                 fillMode: Image.PreserveAspectFit
 
     }
+
     Compass{
         id:_compass
         anchors.verticalCenter: parent.verticalCenter
@@ -21,7 +21,7 @@ Rectangle{
         anchors.leftMargin: 10
         anchors.verticalCenterOffset: -50
     }
-    Camera{
+    CameraItem{
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top:_compass.bottom
