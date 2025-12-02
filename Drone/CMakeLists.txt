@@ -9,4 +9,10 @@ qt_add_qml_module(DronePlugin
     VERSION 1.0
     QML_FILES
     DroneItem.qml
+    RESOURCES resource/backgrand.png
+    QML_FILES BackDrone.qml
+    RESOURCES resource/camera.png
+    QML_FILES Compass.qml
+    RESOURCES resource/backcompass.png resource/compass.png
+    RESOURCES resource/font/Poppins-Regular.ttf
 )

@@ -2,10 +2,16 @@ import QtQuick
 
 Item{
 
-    width: 200
-    height: 300
-    Rectangle{
+    width: 600
+    height: 400
+    Image {
+        id:back
         anchors.fill: parent
-        color: "blue"
+        source: "./resource/backgrand.png"
+        fillMode: Image.Stretch
+
+    }
+    BackDrone{
+        anchors.fill: parent
     }
 }

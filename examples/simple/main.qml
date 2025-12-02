@@ -6,7 +6,7 @@ Window {
     visible: true
     title: qsTr("Hello World")
     DroneItem{
-        anchors.centerIn: parent
+        anchors.fill :parent
     }
 
 }
