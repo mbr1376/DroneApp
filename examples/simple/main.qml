@@ -1,5 +1,5 @@
 import QtQuick
-import DronePlugin  1.0
+import Drone 1.0
 Window {
     width: 640
     height: 480

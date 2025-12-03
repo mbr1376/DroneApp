@@ -1,2 +1,3 @@
 module Drone
+plugin DronePlugin
 DroneItem 1.0 DroneItem.qml
