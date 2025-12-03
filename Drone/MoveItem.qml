@@ -3,10 +3,10 @@ import QtQuick
 Item {
     width: 200
     height: 200
-    signal left(real val)
-    signal right(real val)
-    signal front(real val)
-    signal back(real val)
+    signal moveLeft(real val)
+    signal moveRight(real val)
+    signal moveFront(real val)
+    signal moveBack(real val)
     Rectangle{
         anchors.fill: parent
         color: Qt.rgba(0,0,0,0.8)

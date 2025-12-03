@@ -3,7 +3,7 @@ import QtQuick
 Item {
     width: 170
     height: 170
-    property real rotate: 30.0
+    property real rotate
     FontLoader{
         id: _font
         source: "resource/font/Poppins-Regular.ttf"
