@@ -26,7 +26,7 @@ Item {
             height: 24
             onClicked: {
                 //console.log("right")
-                    right(10)
+                    moveRight(10)
             }
         }
 
@@ -38,7 +38,7 @@ Item {
             height: 24
             onClicked: {
                 //console.log("left")
-                    left(10)
+                    moveLeft(10)
             }
         }
 
@@ -50,7 +50,7 @@ Item {
             height: 24
             onClicked: {
                 //console.log("up")
-                front(10)
+                moveFront(10)
             }
         }
 
@@ -62,7 +62,7 @@ Item {
             height: 24
             onClicked: {
                 //console.log("down")
-                    back(10)
+                    moveBack(10)
             }
         }
     }
