@@ -23,6 +23,8 @@ install(TARGETS DroneExample
 ## slove ubuntu
 
 
+#export QT_MEDIA_BACKEND=ffmpeg
+#export LIBVA_DRIVER_NAME=iHD
 
 
 # Copy the built QML module directory (Drone) next to the executable at build
