@@ -50,17 +50,16 @@ Rectangle{
     }
     CameraItem{
         id:_camera
+        anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
-        anchors.top:_compass.bottom
-        anchors.topMargin:15
     }
     MoveItem{
         id:_move
         anchors.left: parent.left
         anchors.leftMargin: 10
-        anchors.top:_camera.bottom
-        anchors.topMargin:15
+        anchors.bottom:parent.bottom
+        anchors.bottomMargin: 5
     }
     InfoItem{
         id: _info

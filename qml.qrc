@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <!-- QML Module -->
+        <file>Drone/DroneItem.qml</file>
+        <file>Drone/BackDrone.qml</file>
+        <file>Drone/Compass.qml</file>
+        <file>Drone/CameraItem.qml</file>
+        <file>Drone/MoveItem.qml</file>
+        <file>Drone/InfoItem.qml</file>
+        <file>Drone/PanelInfo.qml</file>
+        <!-- Resources -->
+        <file>Drone/resource/backgrand.png</file>
+        <file>Drone/resource/camera.png</file>
+        <file>Drone/resource/backcompass.png</file>
+        <file>Drone/resource/compass.png</file>
+        <file>Drone/resource/font/Poppins-Regular.ttf</file>
+        <file>Drone/resource/lucide_video.png</file>
+        <file>Drone/resource/ph_camera.png</file>
+        <file>Drone/resource/move.png</file>
+        <file>Drone/resource/rotate.png</file>
+        <file>Drone/resource/heading.png</file>
+        <file>Drone/resource/battery.png</file>
+    </qresource>
+</RCC>
