@@ -5,12 +5,12 @@ Rectangle{
     width: 600
     height: 400
     color: "transparent"
-    property real compass: 30.0
-    property real _level: 0.0
+    property real compass
+    property real _level
     property real _height: _info.height
-    property real distance: 12.3
-    property real speed: 20.2
-    property real battery: 56
+    property real distance
+    property real speed
+    property real battery
     signal getCapture();
     signal getVideo(bool check);
     signal rotate(real val)

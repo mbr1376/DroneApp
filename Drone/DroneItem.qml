@@ -5,17 +5,38 @@ Item{
 
     width: 600
     height: 400
-    // Image {
-    //     id:back
-    //     anchors.fill: parent
-    //     source: "./resource/backgrand.png"
-    //     fillMode: Image.Stretch
+    property url rtspurl: ""
+    property real heading: 30.0
+    property real level: 0.0
+   readonly property real _height: back.height
+    property real distance: 12.3
+    property real speed: 20.2
+    property real battery: 56
+    signal getCapture();
+    signal getVideo(bool check);
+    signal rotate(real val)
+    signal heading(real val)
 
-    // }
-    Component.onCompleted: player.play()
+    signal moveLeft(real val)
+    signal moveRight(real val)
+    signal moveFront(real val)
+    signal moveBack(real val)
+    Component.onCompleted: {
+
+        player.play()
+
+            back.getCapture.connect(getCapture)
+            back.getVideo.connect(getVideo)
+            back.heading.connect(heading)
+            back.rotate.connect(rotate)
+            back.moveLeft.connect(moveLeft)
+            back.moveRight.connect(moveRight)
+            back.moveFront.connect(moveFront)
+            back.moveBack.connect(moveBack)
+    }
     MediaPlayer {
             id: player
-            source: "https://as6.asset.aparat.com/aparat-video/3c47b92188311ca9cef164cb45d1b39d9078934-480p.mp4?wmsAuthSign=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjlhMzE3ZDY3MGJkZTY3ZDI0ODNiYmU5NzVlYWY4NGZjIiwiZXhwIjoxNzY0ODcyMDM2LCJpc3MiOiJTYWJhIElkZWEgR1NJRyJ9.BnklbkzlqwAAyJ9nmXDq4BgClMt4_aR0d4x0cPoVumM" //"file:///home/mbr/Downloads/video.mp4" //
+            source: rtspurl
             videoOutput: video
             //autoPlay: true
             loops: MediaPlayer.Infinite
@@ -27,6 +48,13 @@ Item{
             fillMode: VideoOutput.Stretch
         }
     BackDrone{
+        id:back
         anchors.fill: parent
+        compass: compass
+        _level: level
+        distance: distance
+        speed: speed
+        battery: battery
+
     }
 }
