@@ -15,7 +15,7 @@ Item{
     signal getCapture();
     signal getVideo(bool check);
     signal rotate(real val)
-    signal heading(real val)
+    signal headingQuad(real val)
 
     signal moveLeft(real val)
     signal moveRight(real val)
@@ -27,7 +27,7 @@ Item{
 
             back.getCapture.connect(getCapture)
             back.getVideo.connect(getVideo)
-            back.heading.connect(heading)
+            back.heading.connect(headingQuad)
             back.rotate.connect(rotate)
             back.moveLeft.connect(moveLeft)
             back.moveRight.connect(moveRight)
