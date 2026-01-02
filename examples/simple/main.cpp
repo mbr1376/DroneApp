@@ -3,6 +3,8 @@
 
 int main(int argc, char *argv[])
 {
+    qputenv("QT_GSTREAMER_DISABLE_HW_DECODING", "1");
+    qputenv("LIBVA_DRIVER_NAME", "software");
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
