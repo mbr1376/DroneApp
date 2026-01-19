@@ -1,11 +1,11 @@
 import QtQuick
-
+import RoniaKit
 Item {
     id: item1
-    width: 300
-    height: 50
+    width: 120
+    height: 250
     property real distance: 12.3
-    property real speed: 20.2
+    property real speed: 200
     property real battery: 56
 
     FontLoader{
@@ -18,14 +18,15 @@ Item {
         radius: 15
 
     }
-    Row{
+    Column{
         id: row
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.left: parent.left
         anchors.leftMargin: 20
-        spacing: 25
+        spacing: 1
         Column{
             spacing: 5
+            anchors.horizontalCenter: parent.horizontalCenter
             Text {
                 text: qsTr("Distance")
                 color: "gray"
@@ -41,43 +42,25 @@ Item {
                 font.pixelSize: 18
             }
         }
-        Column{
-            spacing: 5
-            Text {
-                text: qsTr("Speed")
-                color: "gray"
-                font.bold: true
-                font.family: _font.name
-                font.pixelSize: 10
-            }
-            Text {
-                text: speed + " Km/h"
-                font.bold: true
-                color: "#FFFFFF"
-                font.family: _font.name
-                font.pixelSize: 18
-            }
-        }
+            CircularSpeedGauge{
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 100
+                height: 100
+                rangeControl.maximumValue:200
+                rangeControl.minimumValue: 0
+                name: "Speed Km/h"
+                value: speed
 
+            }
+
+            FuelGauge{
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 100
+                height: 100
+                value: battery
+                rangeControl.minimumValue: 0
+                rangeControl.maximumValue: 100
+            }
     }
-    Row{
-        id: row1
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.right: parent.right
-        anchors.rightMargin: 5
-        spacing: 3
-        Image {
-            id: name
-            source: "resource/battery.png"
-        }
-        Text {
-            text: battery + " %"
-            anchors.verticalCenter: parent.verticalCenter
-            font.bold: true
-            color: "#FFFFFF"
-            font.family: _font.name
-            font.pixelSize: 12
-            horizontalAlignment: Text.AlignHCenter
-        }
-    }
+
 }

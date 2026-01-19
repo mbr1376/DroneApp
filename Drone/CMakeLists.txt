@@ -24,3 +24,9 @@ qt_add_qml_module(DronePlugin
     QML_FILES PanelInfo.qml
     RESOURCES resource/battery.png
 )
+
+target_link_libraries(DronePlugin
+    PRIVATE
+        RoniaKit
+        RoniaKitplugin
+)

@@ -1,12 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
+import RoniaKit
+
 Item {
     id: item1
     width: 160
     height: 200
     property real _level: 0.0
-    property real _height: slider.value
+    property real _height: level.value
     signal rotate(real val)
     signal heading(real val)
     FontLoader{
@@ -26,6 +28,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 5
+        width: 50
         spacing: 60
         Button{
             text: "Video"
@@ -65,86 +68,41 @@ Item {
 
         }
     }
-
-    Slider {
-        id: slider
-        anchors.right: _col.left
-        anchors.rightMargin: 10
+    LevelGauge {
+        id: level
         anchors.verticalCenter: parent.verticalCenter
-        height: 180
-        width: 30
-        from: 0
-        to:  5000
-        orientation: Qt.Vertical
-        value: 0
-
-        background: Rectangle {
-            id: bg
+        anchors.horizontalCenter:  parent.horizontalCenter
+        //anchors.right: _col.left
+        rangeControl.minimumValue:0
+        rangeControl.maximumValue:1000
+        height: parent.height -20
+        width: 50
+        theme: RoniaControl.Theme.Dark
+        MouseArea {
             anchors.fill: parent
-            anchors.margins: 12   // برای جادادن handle
-            color: "transparent"
+            acceptedButtons: Qt.LeftButton
 
-            Rectangle {
-                id: groove
-                width: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                radius: 5
-                color: "#404040"
+            onPressed: (mouse) => updateValue(mouse.y)
+            onPositionChanged: (mouse) => updateValue(mouse.y)
 
-                Rectangle {
-                    id: fillBar
-                    width: 18
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    height: (1 - slider.visualPosition) * groove.height
-                    anchors.bottom: parent.bottom
-                    //height: slider.visualPosition * groove.height
-                    radius: 4
-                    color: "Transparent"
+            function updateValue(y) {
+                var minV = level.rangeControl.minimumValue
+                var maxV = level.rangeControl.maximumValue
 
-                    Behavior on height {
-                        NumberAnimation { duration: 120 }
-                    }
-                }
-            }
-            Repeater {
-                model: 10
-                Rectangle {
-                    visible: index !== 0 && index !== 9   // ✔ بالا و پایین نمایش داده نشود
+                // clamp
+                y = Math.max(0, Math.min(level.height, y))
 
-                    width: 14
-                    height: 1.4
-                    color: "#FFFFFF"
-                    anchors.horizontalCenter: bg.horizontalCenter
-                    y: (index / 9) * bg.height
-                }
-            }
-        }
-
-        handle: Rectangle {
-            width: 22
-            height: 15
-            radius: 11
-            color: "transparent"
-            border.color: "#FFFFFF"
-            border.width: 2
-
-            x: (slider.width - width) / 2   // قرارگیری درست وسط
-
-            // تبدیل حرکت اسلایدر به مختصات عمودی
-            y: slider.topPadding +
-               slider.visualPosition * (slider.availableHeight - height)
-
-            Behavior on y {
-                NumberAnimation { duration: 120 }
+                // بالا = max
+                var ratio = 1.0 - (y / level.height)
+                level.value = minV + ratio * (maxV - minV)
             }
         }
     }
     Column{
         id:_col1
+        width: 40
         anchors.verticalCenter: parent.verticalCenter
-        anchors.right: slider.left
+        anchors.right: level.left
         anchors.rightMargin: 5
         spacing: 60
         Column{
@@ -152,9 +110,10 @@ Item {
             Text {
                 text: qsTr("Level")
                 color: "gray"
+
                 font.bold: true
                 font.family: _font.name
-                font.pixelSize: 14
+                font.pixelSize: 12
             }
             Text {
                 text: _level
@@ -171,10 +130,10 @@ Item {
                 font.bold: true
                 color: "gray"
                 font.family: _font.name
-                font.pixelSize: 14
+                font.pixelSize: 12
             }
             Text {
-                text: Math.round(slider.value) + "m"
+                text: Math.round(level.value) + "m"
                 font.bold: true
                 color: "#FFFFFF"
                 font.family: _font.name
