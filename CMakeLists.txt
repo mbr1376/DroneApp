@@ -8,6 +8,5 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt6 REQUIRED COMPONENTS Qml Quick)
 
 add_subdirectory(Drone)
-add_subdirectory(ThirdParty/RoniaKit)
-#add_subdirectory(examples/simple)
+add_subdirectory(examples/simple1)
 

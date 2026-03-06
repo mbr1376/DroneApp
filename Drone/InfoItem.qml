@@ -8,7 +8,7 @@ Item {
     width: 160
     height: 200
     property real _level: 0.0
-    property real _height: level.value
+    signal heightChange(real val)
     signal rotate(real val)
     signal heading(real val)
     FontLoader{
@@ -95,6 +95,7 @@ Item {
                 // بالا = max
                 var ratio = 1.0 - (y / level.height)
                 level.value = minV + ratio * (maxV - minV)
+                heightChange(level.value)
             }
         }
     }

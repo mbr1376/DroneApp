@@ -7,7 +7,6 @@ Rectangle{
     color: "transparent"
     property real compass
     property real _level
-    property real _height: _info.height
     property real distance
     property real speed
     property real battery
@@ -15,7 +14,7 @@ Rectangle{
     signal getVideo(bool check);
     signal rotate(real val)
     signal heading(real val)
-
+    signal heightChange(real val)
     signal moveLeft(real val)
     signal moveRight(real val)
     signal moveFront(real val)
@@ -25,6 +24,7 @@ Rectangle{
         _camera.getVideo.connect(getVideo)
         _info.heading.connect(heading)
         _info.rotate.connect(rotate)
+        _info.heightChange.connect(heightChange)
         _move.moveLeft.connect(moveLeft)
         _move.moveRight.connect(moveRight)
         _move.moveFront.connect(moveFront)
@@ -67,16 +67,16 @@ Rectangle{
         anchors.bottom: parent.bottom
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
-        _level:_level
+        _level:rectangle._level
     }
     PanelInfo{
         anchors.top: parent.top
         anchors.topMargin: 10
         anchors.right: parent.right
         anchors.rightMargin: 10
-        battery: battery
-        distance: distance
-        speed: speed
+        battery: rectangle.battery
+        distance: rectangle.distance
+        speed: rectangle.speed
 
     }
 }

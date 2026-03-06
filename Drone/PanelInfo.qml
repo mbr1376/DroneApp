@@ -4,9 +4,9 @@ Item {
     id: item1
     width: 120
     height: 250
-    property real distance: 12.3
-    property real speed: 200
-    property real battery: 56
+    property real distance
+    property real speed
+    property real battery
 
     FontLoader{
         id: _font
